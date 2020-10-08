@@ -1,3 +1,4 @@
+
 function printMessage(msg){
 	let div = document.createElement('div');
 	div.innerHTML = msg;
@@ -27,33 +28,23 @@ function getMoveName(argMoveId){
 function displayResult(argComputerMove, argPlayerMove){
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
-  if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
+  if( (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||( argComputerMove == 'papier' && argPlayerMove == 'nożyce')
+    || ( argComputerMove == 'nożyce' && argPlayerMove == 'kamień')){
     printMessage('Ty wygrywasz!');
   }
-  if( argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
-    printMessage('Ty wygrywasz!');
-  }
-  if( argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
-    printMessage('Ty wygrywasz!');
-  }
-  if( argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
-    printMessage('Remis!');
-  }
-  if( argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
-    printMessage('Remis!');
-  }
-  if( argComputerMove == 'papier' && argPlayerMove == 'papier'){
+  else if (( argComputerMove == 'nożyce' && argPlayerMove == 'nożyce') || ( argComputerMove == 'kamień' && argPlayerMove == 'kamień') || ( argComputerMove == 'papier' && argPlayerMove == 'papier')){
     printMessage('Remis!');
   }
   else {
     printMessage('Tym razem przegrywasz :(');
   }
 }
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+let randomNumber = Math.floor(Math.random() * 3 + 1); 
 
 console.log('Wylosowana liczba to: ' + randomNumber);
 
-let ComputerMove = getMoveName(randomNumber);
+let computerMove = getMoveName(randomNumber);
 
 // if(randomNumber == 1){
 //   computerMove = 'kamień';
@@ -64,12 +55,12 @@ let ComputerMove = getMoveName(randomNumber);
 // else if(randomNumber == 3){
 //     computerMove = 'nożyce';
 //   }
-printMessage('Mój ruch to: ' + ComputerMove);
+printMessage('Mój ruch to: ' + computerMove);
 
 let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 console.log('Gracz wpisał: ' + playerInput);
 
-let PlayerMove = getMoveName(playerInput);
+let playerMove = getMoveName(playerInput);
 
 // if(playerInput == '1'){
 //   playerMove = 'kamień';
@@ -83,6 +74,6 @@ let PlayerMove = getMoveName(playerInput);
 // else if(playerInput > '3'){
 //     playerMove = 'nieznany ruch';
 //   }
-printMessage('Twój ruch to: ' + PlayerMove);
+printMessage('Twój ruch to: ' + playerMove);
 
-let score = displayResult(ComputerMove, PlayerMove);
+let score = displayResult(computerMove, playerMove);
