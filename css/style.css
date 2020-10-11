@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #ddd;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+header {
+  padding: 50px;
+  text-align: center;
+  background-color: #555;
+  color: aliceblue;
+  font-weight: 400;
+}
+.buttons {
+  display: flex;
+  
+}
+button {
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 20px auto;
+  width: 200px;
+  height: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  font-size: 20px;
+  background-color: #0a0;
+  border: none;
+}
+#result,#messages {
+  color: rgb(9, 9, 97);
+  font-size: 20px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
